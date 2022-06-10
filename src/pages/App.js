@@ -1,6 +1,6 @@
 // Imports
 import './App.css';
-import NES from '../components/NES';
+import JSNES from '../components/JSNES';
 
 function App() {
     return (
@@ -12,7 +12,7 @@ function App() {
             </header>
             {/* Emulator container */}
             <div className="grow">
-                <NES />
+                <JSNES />
             </div>
             {/* Image container */}
             <div className="flex flex-col items-center h-1/3 w-full py-10">

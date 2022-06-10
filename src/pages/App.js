@@ -34,7 +34,7 @@ function App() {
                         <p>B - Z</p>
                         <p>A - X</p>
                         <p>Start - Enter</p>
-                        <p>Select - Right Shift</p>
+                        <p>Select - Shift</p>
                     </div>
                 </div>
             </div>

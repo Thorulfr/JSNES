@@ -2,21 +2,6 @@
 import React, { Component } from 'react';
 
 class TVScreen extends Component {
-    // Render canvas at standard NES resolution
-    render() {
-        return (
-            <canvas
-                id="emulator-canvas"
-                width={256}
-                height={240}
-                // Allow access to canvas outside of standard render flow
-                ref={(canvas) => {
-                    this.canvas = canvas;
-                }}
-            ></canvas>
-        );
-    }
-
     // Initialize canvas
     initializeCanvas() {
         // Set canvas drawing method as 2D
@@ -38,6 +23,21 @@ class TVScreen extends Component {
     componentDidUpdate() {
         this.initializeCanvas();
         console.log('Updated');
+    }
+
+    // Render canvas at standard NES resolution
+    render() {
+        return (
+            <canvas
+                id="emulator-canvas"
+                width={256}
+                height={240}
+                // Allow access to canvas outside of standard render flow
+                ref={(canvas) => {
+                    this.canvas = canvas;
+                }}
+            ></canvas>
+        );
     }
 }
 

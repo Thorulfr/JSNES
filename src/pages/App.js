@@ -1,4 +1,6 @@
+// Imports
 import './App.css';
+import NES from '../components/NES';
 
 function App() {
     return (
@@ -9,7 +11,9 @@ function App() {
                 <p className="text-xl pt-4">Press {'<Enter>'} to start.</p>
             </header>
             {/* Emulator container */}
-            <div className="grow"></div>
+            <div className="grow">
+                <NES />
+            </div>
             {/* Image container */}
             <div className="flex flex-col items-center h-1/3 w-full py-10">
                 <img

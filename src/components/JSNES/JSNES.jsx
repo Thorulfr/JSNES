@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import TVScreen from '../TVScreen';
 import { NES, Controller } from 'jsnes';
+import config from '../../config';
 
 // Set which keyboard keys correspond to gamepad keys
 let controllerKeys = {
@@ -67,6 +68,8 @@ class JSNES extends Component {
             'keypress',
             this.keyboardController.handleKeyPress
         );
+
+        // this.nes.loadROM();
     }
 
     render() {

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import TVScreen from '../TVScreen';
 import { NES, Controller } from 'jsnes';
+import loadBinary from '../../utils/utils';
 import config from '../../config';
 
 // Set which keyboard keys correspond to gamepad keys
@@ -15,6 +16,30 @@ let controllerKeys = {
     37: [1, Controller.BUTTON_LEFT, 'Left'], // Left
     39: [1, Controller.BUTTON_RIGHT, 'Right'], // Right
 };
+
+// START Tweaking code from JSNES Web
+
+let handleProgress = (e) => {
+    console.log('Handling progress...');
+};
+
+let handleLoaded = (data) => {
+    console.log('Loaded.');
+};
+
+let ROMBinary = loadBinary(
+    'https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/owlia.nes',
+    (err, data) => {
+        if (err) {
+            console.log('Error ');
+        } else {
+            handleLoaded();
+        }
+    },
+    handleProgress()
+);
+
+// END Tweaking code from JSNES Web
 
 class GamePad {
     // Initialize button down/up to class
@@ -69,7 +94,7 @@ class JSNES extends Component {
             this.keyboardController.handleKeyPress
         );
 
-        // this.nes.loadROM();
+        this.nes.loadROM(ROMBinary);
     }
 
     render() {
